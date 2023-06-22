@@ -6,7 +6,7 @@ import PostTitle from "./post-title";
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <>
-     <div className="max-w-7xl mx-auto pt-5">
+     <div className=" mx-auto pt-5">
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar name={author.name} picture={author.picture} />
