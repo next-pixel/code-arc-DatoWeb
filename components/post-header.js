@@ -6,6 +6,7 @@ import PostTitle from "./post-title";
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <>
+     <div className="max-w-2xl mx-auto">
       <PostTitle>{title}</PostTitle>
       <div className="hidden md:block md:mb-12">
         <Avatar name={author.name} picture={author.picture} />
@@ -23,7 +24,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
         <div className="mb-6 text-lg">
           <Date dateString={date} />
         </div>
-      </div>
+      </div></div>
     </>
   );
 }
