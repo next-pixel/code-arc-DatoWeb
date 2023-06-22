@@ -125,7 +125,7 @@ export default function Post({ subscription, preview }) {
     <Layout preview={preview}>
       <Head>{renderMetaTags(metaTags)}</Head>
       <Container>
-        <Header />
+        <Intro />
         <article>
           <PostHeader
             title={post.title}
