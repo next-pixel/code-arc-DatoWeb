@@ -17,8 +17,8 @@ export default function CoverImage({ title, responsiveImage, slug }) {
   return (
     <div className="mx-1">
       {slug ? (
-        <Link href={`/posts/${slug}`}>
-          <a aria-label={title}>{image}</a>
+        <Link href={`/posts/${slug}`} title={title}>
+          <a aria-label={title} title={title}>{image}</a>
         </Link>
       ) : (
         image
