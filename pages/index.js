@@ -41,6 +41,11 @@ export async function getStaticProps({ preview }) {
             }
           }
         }
+
+        allPostsMq: allPosts(orderBy: date_DESC) {
+          title
+          slug
+        }
       }
 
       ${metaTagsFragment}
@@ -68,7 +73,7 @@ export async function getStaticProps({ preview }) {
 
 export default function Index({ subscription }) {
   const {
-    data: { allPosts, site, blog },
+    data: { allPosts, site, blog ,allPostsMq},
   } = useQuerySubscription(subscription);
 
   const heroPost = allPosts[0];
@@ -82,7 +87,7 @@ export default function Index({ subscription }) {
         <meta name="keywords" content={metaTags.metakeywords}></meta>
         </Head>
         <Container>
-          <Intro />
+          <Intro mqposts={allPostsMq} />
           {heroPost && (
             <HeroPost
               title={heroPost.title}

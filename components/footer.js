@@ -3,22 +3,22 @@ import Container from "./container";
 export default function Footer() {
   return (
     
-<footer class="bg-white rounded-lg shadow m-4 dark:bg-gray-800">
-    <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
-      <span class="text-sm text-gray-500 sm:text-center dark:text-gray-400">© 2023 <a href="/" class="hover:underline">Code Arc™</a>. All Rights Reserved.
+<footer className="bg-white rounded-lg shadow m-4 ">
+    <div className="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
+      <span className="text-sm text-gray-500 sm:text-center ">© 2023 <a href="/" className="hover:underline">Code Arc™</a>. All Rights Reserved.
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+    <ul className="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500  sm:mt-0">
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6 ">About</a>
+            <a href="#" title="About" className="mr-4 hover:underline md:mr-6 ">About</a>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Privacy Policy</a>
+            <a href="#" title="Privacy Policy" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
         </li>
         <li>
-            <a href="#" class="mr-4 hover:underline md:mr-6">Website Disclaimer</a>
+            <a href="#" title="Website Disclaimer" className="mr-4 hover:underline md:mr-6">Website Disclaimer</a>
         </li>
         <li>
-            <a href="#" class="hover:underline">Contact</a>
+            <a href="#" title="Contact" className="hover:underline">Contact</a>
         </li>
     </ul>
     </div>

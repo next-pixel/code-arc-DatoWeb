@@ -34,6 +34,7 @@ export async function getStaticProps({ params, preview = false }) {
           }
           title
           slug
+          seoReadabilityAnalysis
           content {
             value
             blocks {
@@ -86,6 +87,11 @@ export async function getStaticProps({ params, preview = false }) {
             }
           }
         }
+
+        allPostsMq: allPosts(orderBy: date_DESC) {
+          title
+          slug
+        }
       }
 
       ${responsiveImageFragment}
@@ -116,16 +122,17 @@ export async function getStaticProps({ params, preview = false }) {
 
 export default function Post({ subscription, preview }) {
   const {
-    data: { site, post, morePosts },
+    data: { site, post, morePosts,allPostsMq },
   } = useQuerySubscription(subscription);
 
   const metaTags = post.seo.concat(site.favicon);
-
+//console.log(allPostsMq)
   return (
     <Layout preview={preview}>
-      <Head>{renderMetaTags(metaTags)}</Head>
+      <Head>{renderMetaTags(metaTags)}
+      </Head>
       <Container>
-        <Intro />
+        <Intro mqposts={allPostsMq} />
         <article>
           <PostHeader
             title={post.title}
