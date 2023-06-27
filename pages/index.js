@@ -78,7 +78,9 @@ export default function Index({ subscription }) {
   return (
     <>
       <Layout preview={subscription.preview}>
-        <Head>{renderMetaTags(metaTags)}</Head>
+        <Head>{renderMetaTags(metaTags)}
+        <meta name="keywords" content={metaTags.metakeywords}></meta>
+        </Head>
         <Container>
           <Intro />
           {heroPost && (
