@@ -1,5 +1,5 @@
-import Alert from "./alert";
 import Footer from "./footer";
+import ScrollToTop from "react-scroll-to-top";
 
 export default function Layout({ preview, children }) {
   return (
@@ -9,6 +9,7 @@ export default function Layout({ preview, children }) {
         <main>{children}</main>
       </div>
       <Footer />
+      <ScrollToTop smooth color="#6f00ff" />
     </>
   );
 }
