@@ -15,7 +15,7 @@ export default function Footer() {
             <a href="/privacy-policy" title="Privacy Policy" className="mr-4 hover:underline md:mr-6">Privacy Policy</a>
         </li>
         <li>
-            <a href="#" title="Website Disclaimer" className="mr-4 hover:underline md:mr-6">Website Disclaimer</a>
+            <a href="/website-disclaimer" title="Website Disclaimer" className="mr-4 hover:underline md:mr-6">Website Disclaimer</a>
         </li>
         <li>
             <a href="#" title="Contact" className="hover:underline">Contact</a>
