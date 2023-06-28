@@ -76,6 +76,7 @@ export default function about({ subscription }) {
     data: { allPosts, site, blog ,allPostsMq},
   } = useQuerySubscription(subscription);
 
+  const morePosts = allPosts.slice(1);
   const metaTags = blog.seo.concat(site.favicon);
 
   return (
@@ -89,7 +90,15 @@ export default function about({ subscription }) {
           <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">About US</h1><div className="w-full mb-4">
       <div className="h-1 mx-auto bg-indigo-400 w-64  my-0 py-0 rounded-t"></div>
     </div>
-    <div className="bg-white rounded-lg shadow m-4 p-8">I am Krunal Shah or you can say kunal shah, i am writing a blogs, i have Over 8 years of experience in web development such as developing dynamic applications with top technologies. Deep knowledge of .NET Core, Angular CLI, Node Js, React, Asp.NET MVC, Sql Server, Oracle, Azure, HTML5, Javascript and CSS3, etc. and a Microsoft Certified: Azure Developer Associate.</div>
+    <div className=" m-4 ">
+    <div class="grid lg:grid-cols-3 grid-cols-auto gap-4">
+  <div><img src="https://www.datocms-assets.com/103068/1687942456-about.png" ></img></div>
+  <div class="lg:col-span-2 bg-white rounded-lg shadow p-8"> I am Krunal Shah or you can say kunal shah, i am writing a blogs, i have Over 8 years of experience in web development such as developing dynamic applications with top technologies. Deep knowledge of .NET Core, Angular CLI, Node Js, React, Asp.NET MVC, Sql Server, Oracle, Azure, HTML5, Javascript and CSS3, etc. and a Microsoft Certified: Azure Developer Associate.
+ </div>
+</div>
+ 
+      </div>
+      {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
       </Layout>
     </>
