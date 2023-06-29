@@ -1,21 +1,9 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
-import Analytics from 'analytics'
-import googleAnalytics from '@analytics/google-analytics'
-import googleTagManager from '@analytics/google-tag-manager'
+
 
 export default class MyDocument extends Document {
   render() {
-    const analytics = Analytics({
-      app: 'awesome-app',
-      plugins: [
-        googleAnalytics({
-          measurementIds: ['G-ZF9XWPZYQ4']
-        }),
-        googleTagManager({
-          containerId: 'G-ZF9XWPZYQ4'
-        })
-      ]
-    })
+    
     return (
       <Html lang="en">
         <Head>
