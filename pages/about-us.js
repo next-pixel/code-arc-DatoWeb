@@ -1,28 +1,64 @@
 import Head from "next/head";
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
 import Container from "@/components/container";
-import HeroPost from "@/components/hero-post";
+import PostBody from "@/components/post-body";
 import Intro from "@/components/intro";
 import Layout from "@/components/layout";
 import MoreStories from "@/components/more-stories";
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments";
+import PageImage from "@/components/Page-image";
 
-export async function getStaticProps({ preview }) {
+export async function getStaticProps({ preview = false }) {
   const graphqlRequest = {
     query: `
-      {
+      query PostBySlug($slug: String) {
         site: _site {
           favicon: faviconMetaTags {
             ...metaTagsFragment
           }
         }
-        blog {
+        page(filter: {slug: {eq: $slug}}) {
           seo: _seoMetaTags {
             ...metaTagsFragment
           }
+          title
+          slug
+          seoReadabilityAnalysis
+          content {
+            value
+            blocks {
+              __typename
+              ...on ImageBlockRecord {
+                id
+                image {
+                  responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 }) {
+                    ...responsiveImageFragment
+                  }
+                }
+              }
+            }
+          }
+          date
+          ogImage: coverImage{
+            url(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1000 })
+          }
+          coverImage {
+            responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 2000, h: 1200 }) {
+              ...responsiveImageFragment
+            }
+          }
+          author {
+            name
+            picture {
+              responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100}) {
+                ...responsiveImageFragment
+              }
+            }
+          }
         }
-        allPosts(orderBy: date_DESC, first: 20) {
+
+        morePosts: allPosts(orderBy: date_DESC, first: 3, filter: {slug: {neq: $slug}}) {
           title
           slug
           excerpt
@@ -48,10 +84,13 @@ export async function getStaticProps({ preview }) {
         }
       }
 
-      ${metaTagsFragment}
       ${responsiveImageFragment}
+      ${metaTagsFragment}
     `,
     preview,
+    variables: {
+      slug: "about-us",
+    },
   };
 
   return {
@@ -73,11 +112,10 @@ export async function getStaticProps({ preview }) {
 
 export default function about({ subscription }) {
   const {
-    data: { allPosts, site, blog ,allPostsMq},
+    data: { site, page, morePosts,allPostsMq },
   } = useQuerySubscription(subscription);
 
-  const morePosts = allPosts.slice(1);
-  const metaTags = blog.seo.concat(site.favicon);
+  const metaTags = page.seo.concat(site.favicon);
 
   return (
     <>
@@ -87,13 +125,18 @@ export default function about({ subscription }) {
         </Head>
         <Container>
           <Intro mqposts={allPostsMq} />
-          <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">About US</h1><div className="w-full mb-4">
+          <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">{page.title}</h1><div className="w-full mb-4">
       <div className="h-1 mx-auto bg-indigo-400 w-64  my-0 py-0 rounded-t"></div>
     </div>
     <div className=" m-4 ">
-    <div class="grid lg:grid-cols-3 grid-cols-auto gap-4">
-  <div><img src="https://www.datocms-assets.com/103068/1687942456-about.png" ></img></div>
-  <div class="lg:col-span-2 bg-white rounded-lg shadow p-8"> I am Krunal Shah or you can say kunal shah, i am writing a blogs, i have Over 8 years of experience in web development such as developing dynamic applications with top technologies. Deep knowledge of .NET Core, Angular CLI, Node Js, React, Asp.NET MVC, Sql Server, Oracle, Azure, HTML5, Javascript and CSS3, etc. and a Microsoft Certified: Azure Developer Associate.
+    <div className="grid lg:grid-cols-3 grid-cols-auto gap-4">
+  <div><PageImage
+          title={page.title}
+          responsiveImage={page.coverImage.responsiveImage}
+        /></div>
+  <div className="lg:col-span-2 bg-white rounded-lg shadow p-8"> 
+  <article>
+  <PostBody content={page.content} /></article>
  </div>
 </div>
  
