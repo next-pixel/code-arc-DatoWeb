@@ -68,7 +68,7 @@ export async function getStaticProps({ params, preview = false }) {
           }
         }
 
-        morePosts: allPosts(orderBy: date_DESC, first: 2, filter: {slug: {neq: $slug}}) {
+        morePosts: allPosts(orderBy: date_DESC, first: 3, filter: {slug: {neq: $slug}}) {
           title
           slug
           excerpt
