@@ -6,7 +6,10 @@ export default function Avatar({ name, picture }) {
       <div className="w-12 h-12 mr-4">
         <Image
           alt={name}
-          data={picture.responsiveImage}
+          data={{
+            ...picture.responsiveImage,
+            alt: `Avatar Image for ${name}`,
+          }}
           className="rounded-full"
         />
       </div>

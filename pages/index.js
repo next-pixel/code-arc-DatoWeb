@@ -2,6 +2,7 @@ import Head from "next/head";
 import { renderMetaTags, useQuerySubscription } from "react-datocms";
 import Container from "@/components/container";
 import HeroPost from "@/components/hero-post";
+import SEOTags from "@/components/seotags";
 import Intro from "@/components/intro";
 import Layout from "@/components/layout";
 import MoreStories from "@/components/more-stories";
@@ -20,7 +21,8 @@ export async function getStaticProps({ preview }) {
         blog {
           seo: _seoMetaTags {
             ...metaTagsFragment
-          }
+          },
+          hpseo
         }
         allPosts(orderBy: date_DESC, first: 20) {
           title
@@ -84,7 +86,7 @@ export default function Index({ subscription }) {
     <>
       <Layout preview={subscription.preview}>
         <Head>{renderMetaTags(metaTags)}
-        <meta name="keywords" content={metaTags.metakeywords}></meta>
+        <SEOTags seodatas={blog.hpseo.relatedKeywords}></SEOTags>
         </Head>
         <Container>
           <Intro mqposts={allPostsMq} />
