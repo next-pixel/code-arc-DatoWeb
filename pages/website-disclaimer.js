@@ -7,7 +7,7 @@ import Layout from "@/components/layout";
 import MoreStories from "@/components/more-stories";
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments";
-import PageImage from "@/components/Page-image";
+import PageImage from "@/components/page-image";
 
 export async function getStaticProps({ preview = false }) {
   const graphqlRequest = {
