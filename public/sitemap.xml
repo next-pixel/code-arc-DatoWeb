@@ -1,22 +1,24 @@
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-<loc>https://code-arc.vercel.app/</loc>
-<lastmod>2023-06-26T13:39:22+00:00</lastmod>
-<priority>1.00</priority>
-</url>
-<url>
-<loc>https://code-arc.vercel.app/posts/solid-principles-in-csharp-with-examples</loc>
-<lastmod>2023-06-26T13:39:22+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://code-arc.vercel.app/posts/how-to-enable-gzip-compression-in-asp-net-core-using-dot-net-cli-with-example</loc>
-<lastmod>2023-06-26T13:39:22+00:00</lastmod>
-<priority>0.80</priority>
-</url>
-<url>
-<loc>https://code-arc.vercel.app/posts/exploring-the-benefits-of-using-partial-methods-in-csharp</loc>
-<lastmod>2023-06-26T13:39:22+00:00</lastmod>
-<priority>0.80</priority>
-</url>
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://code-arc.vercel.app</loc>
+  </url>
+  <url>
+    <loc>https://code-arc.vercel.app/about</loc>
+  </url>
+  <url>
+    <loc>https://code-arc.vercel.app/posts/exploring-the-benefits-of-using-partial-methods-in-csharp</loc>
+  </url>
+  <url>
+    <loc>https://code-arc.vercel.app/posts/how-to-enable-gzip-compression-in-asp-net-core-using-dot-net-cli-with-example</loc>
+  </url>
+  <url>
+    <loc>https://code-arc.vercel.app/posts/solid-principles-in-csharp-with-examples</loc>
+  </url>
+  <url>
+    <loc>https://code-arc.vercel.app/privacy-policy</loc>
+  </url>
+  <url>
+    <loc>https://code-arc.vercel.app/website-disclaimer</loc>
+  </url>
 </urlset>
