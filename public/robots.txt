@@ -1,2 +1,3 @@
 User-Agent: *
 Allow: /
+sitemap: https://code-arc.vercel.app/sitemap.xml
