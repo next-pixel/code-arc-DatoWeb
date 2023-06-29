@@ -1,3 +1,7 @@
-User-Agent: *
+User-agent: Googlebot
+Disallow: /nogooglebot/
+
+User-agent: *
 Allow: /
-sitemap: https://code-arc.vercel.app/sitemap.xml
+
+Sitemap: https://code-arc.vercel.app/sitemap.xml
