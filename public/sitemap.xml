@@ -1,24 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://code-arc.vercel.app</loc>
-  </url>
-  <url>
-    <loc>https://code-arc.vercel.app/about</loc>
-  </url>
-  <url>
-    <loc>https://code-arc.vercel.app/posts/exploring-the-benefits-of-using-partial-methods-in-csharp</loc>
-  </url>
-  <url>
-    <loc>https://code-arc.vercel.app/posts/how-to-enable-gzip-compression-in-asp-net-core-using-dot-net-cli-with-example</loc>
-  </url>
-  <url>
-    <loc>https://code-arc.vercel.app/posts/solid-principles-in-csharp-with-examples</loc>
-  </url>
-  <url>
-    <loc>https://code-arc.vercel.app/privacy-policy</loc>
-  </url>
-  <url>
-    <loc>https://code-arc.vercel.app/website-disclaimer</loc>
-  </url>
+ <url>
+<loc>https://code-arc.vercel.app/</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/posts/solid-principles-in-csharp-with-examples</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/posts/how-to-enable-gzip-compression-in-asp-net-core-using-dot-net-cli-with-example</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/posts/exploring-the-benefits-of-using-partial-methods-in-csharp</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/posts/csrf-tokens-in-angularjs-jquery-with-asp-net-core-a-comprehensive-guide</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/posts/introduction-to-csharp-anonymous-methods</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/about-us</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/privacy-policy</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/website-disclaimer</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://code-arc.vercel.app/contact-us</loc>
+<lastmod>2023-06-30T12:47:47+01:00</lastmod>
+<priority>1.0</priority>
+</url>
 </urlset>
