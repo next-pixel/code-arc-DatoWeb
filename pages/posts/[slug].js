@@ -9,7 +9,7 @@ import PostHeader from "@/components/post-header";
 import SectionSeparator from "@/components/section-separator";
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments";
-
+import { BreadcrumbJsonLd,ArticleJsonLd } from 'next-seo';
 export async function getStaticPaths() {
   const data = await request({ query: `{ allPosts { slug } }` });
 
@@ -63,7 +63,8 @@ export async function getStaticProps({ params, preview = false }) {
             picture {
               responsiveImage(imgixParams: {fm: jpg, fit: crop, w: 100, h: 100, sat: -100}) {
                 ...responsiveImageFragment
-              }
+              },
+              url
             }
           }
         }
@@ -126,6 +127,7 @@ export default function Post({ subscription, preview }) {
   } = useQuerySubscription(subscription);
 
   const metaTags = post.seo.concat(site.favicon);
+  const siteURL = 'https://code-arc.vercel.app'
 //console.log(allPostsMq)
   return (
     <Layout preview={preview}>
@@ -133,6 +135,58 @@ export default function Post({ subscription, preview }) {
       </Head>
       <Container>
         <Intro mqposts={allPostsMq} />
+        <BreadcrumbJsonLd
+      itemListElements={[
+        {
+          type: "ListItem",
+          position: 1,
+          name: 'Home',
+          item: siteURL,
+        },
+        {
+          type: "ListItem",
+          position: 2,
+          name: 'Posts',
+          item: siteURL + '/posts',
+        },
+        {
+          type: "ListItem",
+          position: 3,
+          name: post.title,
+          item: siteURL + '/posts/' + post.slug ,
+        }
+      ]}
+    />
+     <ArticleJsonLd
+      url={siteURL + '/posts/' + post.slug}
+      title={post.title}
+      images={[
+        post.ogImage.url
+      ]}
+      datePublished={post.date}
+      dateModified={post.date}
+      authorName={[post.author.name]}
+      publisherName={post.author.name}
+      publisherLogo={post.author.picture.url}
+      description={post.title}
+      isAccessibleForFree={true}
+    />
+    <ArticleJsonLd
+      type="BlogPosting"
+      url={siteURL + '/posts/' + post.slug}
+      isAccessibleForFree={true}
+      publisherName={post.author.name}
+
+      title={post.title}
+      images={[
+        post.ogImage.url
+      ]}
+      datePublished={post.date}
+      dateModified={post.date}
+      authorName={post.author.name}
+      description={post.title}
+      
+    />
         <article>
           <PostHeader
             title={post.title}
