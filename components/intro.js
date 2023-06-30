@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
 import { Image } from "react-datocms";
+import {LogoJsonLd} from 'next-seo'
 export default function Intro({ mqposts }) {
   return (
 <nav
@@ -18,7 +19,10 @@ export default function Intro({ mqposts }) {
     />
                 </a>
             </div>
-            
+            <LogoJsonLd
+      logo="https://www.datocms-assets.com/103068/1687417296-code-arc3-1.png"
+      url="https://code-arc.vercel.app/"
+    />
         </div>
     
         <div className="menu w-full lg:block flex-grow lg:flex lg:items-center lg:w-auto lg:px-3 px-8">

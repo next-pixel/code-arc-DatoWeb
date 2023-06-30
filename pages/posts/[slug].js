@@ -9,7 +9,7 @@ import PostHeader from "@/components/post-header";
 import SectionSeparator from "@/components/section-separator";
 import { request } from "@/lib/datocms";
 import { metaTagsFragment, responsiveImageFragment } from "@/lib/fragments";
-import { BreadcrumbJsonLd,ArticleJsonLd } from 'next-seo';
+import { BreadcrumbJsonLd,ArticleJsonLd,NextSeo } from 'next-seo';
 export async function getStaticPaths() {
   const data = await request({ query: `{ allPosts { slug } }` });
 
@@ -34,6 +34,7 @@ export async function getStaticProps({ params, preview = false }) {
           }
           title
           slug
+          summary
           seoReadabilityAnalysis
           content {
             value
@@ -157,6 +158,36 @@ export default function Post({ subscription, preview }) {
         }
       ]}
     />
+    <NextSeo
+      title={post.title}
+      description={post.summary}
+      openGraph={{
+        url: siteURL,
+        title: post.title,
+        description: post.summary,
+        images: [
+          { url: post.ogImage.url,
+            alt: post.title, }
+        ],
+        siteName: 'Code Arc',
+        type: 'article',
+        article: {
+          publishedTime: post.date,
+          modifiedTime: post.date,
+          expirationTime: post.date,
+          section: '.NEt',
+          authors: [
+            post.author.picture.url
+          ],
+          tags: ['.NET'],
+        }
+      }}
+      twitter={{
+        handle: '@shahkrunal258',
+        site: '@codearc',
+        cardType: 'summary_large_image',
+      }}
+    />
      <ArticleJsonLd
       url={siteURL + '/posts/' + post.slug}
       title={post.title}
@@ -168,7 +199,7 @@ export default function Post({ subscription, preview }) {
       authorName={[post.author.name]}
       publisherName={post.author.name}
       publisherLogo={post.author.picture.url}
-      description={post.title}
+      description={post.summary}
       isAccessibleForFree={true}
     />
     <ArticleJsonLd
@@ -184,7 +215,7 @@ export default function Post({ subscription, preview }) {
       datePublished={post.date}
       dateModified={post.date}
       authorName={post.author.name}
-      description={post.title}
+      description={post.summary}
       
     />
         <article>
